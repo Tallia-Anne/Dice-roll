@@ -69,11 +69,13 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 4,
         padding: 12,
+        
     },
     imgde: {
         width: '100%',
         height: '100%',
         borderRadius: 4,
+      
 
     }
 })

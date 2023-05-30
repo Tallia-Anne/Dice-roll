@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, Pressable } from 'react-native';
+import React, { useState, useRef, useCallback } from 'react';
+import { View, StyleSheet, Text, Pressable, Animated } from 'react-native';
 import { DiceGame } from '../components';
 import colors from '../shared/theme/colors';
 import weight from '../shared/theme/weight';
@@ -8,6 +8,8 @@ import { getHeight, getWidth } from '../shared/constants/ScreenSize';
 
 
 const GameScreen = () => {
+    
+    const anim = useRef(new Animated.Value(0));
     
     const [score, setScore] = useState(0);
 
@@ -32,7 +34,7 @@ const GameScreen = () => {
         setfirstvaleur(newFirstvaleur);
         setsecondvaleur(newSecondvaleur);
         setScore(newFirstvaleur + newSecondvaleur);
-
+        shake();
     }
     console.log('Score: '+score);
 
@@ -42,6 +44,34 @@ const GameScreen = () => {
         setfirstvaleur(0);
 
     }
+    
+    
+    const shake = useCallback(() => {
+        // fait tourner la séquence en boucle
+        Animated.loop(
+            // exécute le tableau d'animation en séquence
+            Animated.sequence([
+                // décaler l'élément vers la gauche de 2 unités
+                Animated.timing(anim.current, {
+                    toValue: -2,
+                    duration: 50,
+                }),
+                // décaler l'élément vers la droit de 2 unités
+                Animated.timing(anim.current, {
+                    toValue: 2,
+                    duration: 50,
+                }),
+                // ramener l'élément à sa position initiale
+                Animated.timing(anim.current, {
+                    toValue: 0,
+                    duration: 50,
+                }),
+            ]),
+            // boucle la configuration de l'animation ci-dessus 2 fois
+            { iterations: 2 }
+        ).start();
+    }, []);
+    
     
     return (
         <View style={styles.container}>
@@ -55,11 +85,12 @@ const GameScreen = () => {
                             <Text style={styles.reni} > Réinitialiser</Text>
                         </Pressable>
                     </View>
-
+                    <Animated.View style={{ transform: [{ translateX: anim.current }] }}>
                     <DiceGame
                         firstvaleur={firstvaleur}
                         secondvaleur={secondvaleur}
-                    />
+                        />
+                        </Animated.View>
 
                     <View style={styles.bouton} >
                         <Pressable onPress={LancerDe}>
@@ -78,13 +109,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-       
-        padding: 32,
+        padding: 22,
     },
     title: {
         color: colors.PINK,
         fontSize: 30,
         fontWeight: weight.BOLD,
+        paddingBottom: 10,
     },
     containergris: {
         backgroundColor: colors.GRIS,
@@ -117,6 +148,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: weight.BOLD,
         borderRadius: 7,
+        elevation: 2,
 
     },
     lancer: {
@@ -128,6 +160,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: weight.BOLD,
         borderRadius: 8,
+        elevation: 2,
     }
 })
 
