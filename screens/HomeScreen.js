@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
-
+import Ionicons from 'react-native-vector-icons/FontAwesome5'
 
 const HomeScreen = ({navigation}) => {
     return (
@@ -8,7 +8,16 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.text}>DICE APP</Text>
             <View>
                 <Pressable onPress={() => navigation.navigate('GameScreen')} >
-                    <Text style={styles.button}>Lancer le jeu</Text>
+                   
+                    <Text style={styles.button}>  <Ionicons
+                        name='dice-six'
+                        color={'#512c33'}
+                        size={25}
+                    />   Lancer le jeu    <Ionicons
+                            name='dice-six'
+                            color={'#512c33'}
+                            size={25}
+                        /> </Text>
                 </Pressable>
             </View>
         </View>
@@ -25,7 +34,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#512c33',
-        fontSize: 34,
+        fontSize: 35,
         fontWeight: 'bold',
         padding: 100
     },
@@ -35,13 +44,10 @@ const styles = StyleSheet.create({
         padding: 12,
         fontSize: 20,
         fontWeight: '700',
-        textTransform: 'uppercase',
         borderRadius: 7,
 
     },
-     icon: {
-        color: '#FFFFFF',
-    },
+    
 })
 
 export default HomeScreen;

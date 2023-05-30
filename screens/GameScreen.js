@@ -58,7 +58,7 @@ const GameScreen = () => {
 
                     <View style={styles.bouton} >
                         <Pressable onPress={LancerDe}>
-                            <Text style={styles.lancer} >Lancer les dés</Text>
+                            <Text style={styles.lancer} >  Lancer les dés  </Text>
                         </Pressable>
                     </View>
                 </View>
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         color: '#d6798b',
         fontSize: 30,
         fontWeight: '700',
-        textTransform: 'uppercase',
     },
     containergris: {
         backgroundColor: '#eeeaeb',
@@ -89,7 +88,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 7,
+        borderRadius: 12,
+        elevation: 2,
     },
 
     wrap: {
@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
         padding: 12,
         backgroundColor: '#d9b6bc',
         color: '#553037',
+        borderWidth: 2,
         borderColor: '#553037',
         textTransform: 'uppercase',
         fontWeight: '700',

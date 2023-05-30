@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Foundation as FoundationIcons } from 'react-native-vector-icons';
+import Ionicons from 'react-native-vector-icons/FontAwesome5';
 import HomeScreen from '../screens/HomeScreen';
-import TestScreen from '../screens/GameScreen';
+import GameScreen from '../screens/GameScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -28,15 +29,19 @@ const NavigationTabs = () => {
                 }
             />
             <Tab.Screen
-                name="Test"
-                component={TestScreen}
+                name="GameScreen"
+                component={GameScreen}
                 options={
                     {
                         tabBarlabel: "Jouer",
                         tabBarActiveTintColor: "#d6798b",
                         tabBarInactiveTintColor: "#d9b6bc",
                         tabBarIcon: ({ color, size }) => (
-                            <FoundationIcons name="dice-six" color={color} size={size} />
+                           <Ionicons
+                            name='dice-six'
+                            color={color}
+                            size={size}
+                        /> 
                         ),
                         title: "Jouer",
                     }
