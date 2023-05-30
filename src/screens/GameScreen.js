@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
 import { DiceGame } from '../components';
+import colors from '../shared/theme/colors';
+import weight from '../shared/theme/weight';
+import { getHeight, getWidth } from '../shared/constants/ScreenSize';
+
+
 
 const GameScreen = () => {
     
@@ -69,7 +74,7 @@ const GameScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#d9b6bc',
+        backgroundColor: colors.FOND,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -77,14 +82,14 @@ const styles = StyleSheet.create({
         padding: 32,
     },
     title: {
-        color: '#d6798b',
+        color: colors.PINK,
         fontSize: 30,
-        fontWeight: '700',
+        fontWeight: weight.BOLD,
     },
     containergris: {
-        backgroundColor: '#eeeaeb',
-        height: 150,
-        width: 300,
+        backgroundColor: colors.GRIS,
+        height: (getHeight()-20),
+         width: (getWidth()- 60 ),
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
 
     wrap: {
         padding: 20,
-        backgroundColor: '#f6f0f2',
+        backgroundColor: colors.GRISCLAIR,
         width: '90%',
         height: '90%'
 
@@ -107,22 +112,22 @@ const styles = StyleSheet.create({
     },
     reni: {
         padding: 12,
-        backgroundColor: '#9d5465',
+        backgroundColor: colors.RENI,
         color: 'white',
         textTransform: 'uppercase',
-        fontWeight: '700',
+        fontWeight: weight.BOLD,
         borderRadius: 7,
 
     },
     lancer: {
         padding: 12,
-        backgroundColor: '#d9b6bc',
-        color: '#553037',
+        backgroundColor: colors.FOND,
+        color: colors.MARRON,
         borderWidth: 2,
         borderColor: '#553037',
         textTransform: 'uppercase',
-        fontWeight: '700',
-        borderRadius: 7,
+        fontWeight: weight.BOLD,
+        borderRadius: 8,
     }
 })
 

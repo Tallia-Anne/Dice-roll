@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, StyleSheet, Text, Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/FontAwesome5'
+import colors from '../shared/theme/colors';
+import weight from '../shared/theme/weight';
+
+
 
 const HomeScreen = ({navigation}) => {
     return (
@@ -11,11 +15,11 @@ const HomeScreen = ({navigation}) => {
                    
                     <Text style={styles.button}>  <Ionicons
                         name='dice-six'
-                        color={'#512c33'}
+                        color={colors.MARRON}
                         size={25}
                     />   Lancer le jeu    <Ionicons
                             name='dice-six'
-                            color={'#512c33'}
+                            color={colors.MARRON}
                             size={25}
                         /> </Text>
                 </Pressable>
@@ -26,24 +30,24 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#d9b6bc',
+        backgroundColor: colors.FOND,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         width:'100%',
     },
     text: {
-        color: '#512c33',
+        color: colors.POLICETITLE,
         fontSize: 35,
-        fontWeight: 'bold',
+        fontWeight: weight.BOLD,
         padding: 100
     },
     button: {
-        backgroundColor: '#d6798b',
-        color: '#553037',
+        backgroundColor: colors.PINK,
+        color: colors.MARRON,
         padding: 12,
         fontSize: 20,
-        fontWeight: '700',
+        fontWeight: weight.BOLD,
         borderRadius: 7,
 
     },

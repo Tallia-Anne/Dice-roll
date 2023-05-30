@@ -3,8 +3,8 @@ import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { HomeScreen, GameScreen } from './screens';
-import { NavigationTabs } from './navigation';
+import { HomeScreen, GameScreen } from './src/screens';
+import { NavigationTabs } from './src/navigation';
 
 // on va stocker la fonction createNativeStack dans une variable qui stack 
 // createStackNavigator() permet de créer une stack de navigation
