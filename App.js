@@ -1,20 +1,38 @@
+
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { HomeScreen, GameScreen } from './screens';
+import { NavigationTabs } from './navigation';
+
+// on va stocker la fonction createNativeStack dans une variable qui stack 
+// createStackNavigator() permet de créer une stack de navigation
+// une stack est définie par une fonction createStackNavigator()
+const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="NavigationTabs"
+          component={NavigationTabs}
+          options={{ headerShown: false, }}
+        />
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen} />
+        <Stack.Screen
+          name="GameScreen"
+          component={GameScreen} />
+       
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
